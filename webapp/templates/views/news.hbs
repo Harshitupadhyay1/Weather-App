@@ -48,11 +48,11 @@
   </template>
 
     <script >
+//`http://newsapi.org/v2/everything?q=${search}&apiKey=36f3e29b704f41339af8439dc1228334`
+    let API_KEY = "36f3e29b704f41339af8439dc1228334";
+const url = "http://newsapi.org/v2/everything?q="; 
 
-    let API_KEY = "a3763d58506e44379ffe51661c2037fe";
-const url = "https://newsapi.org/v2/everything?q=";
-
-window.addEventListener('load',() => fetchNews("Weather"));
+window.addEventListener('load',() => fetchNews("weather"));
 
 async function fetchNews (query) {
     const res = await fetch(`${url}${query}&apiKey=${API_KEY}`)
