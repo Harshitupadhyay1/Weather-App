@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <link rel="stylesheet" href="style.css">
+    {{>headerlinks}}
+    <style>
+        .news-desc{
+            color: rgb(56 90 100);
+        }
+        #news-title{
+            color:  rgb(89 228 168);
+            text-decoration: underline;
+        }
+        @media screen and (max-width: 900px){
+            #cards-container{
+                align-items: center;
+                max-width: 820px;
+            }
+        }
+        @media screen and (max-width: 700px){
+            #cards-container{
+                align-items: center;
+                max-width: 420px;
+            }
+        }
+    </style>
+</head>
+<body>
+   {{>navbar}}
+
+   <main class="main-news">
+    <div class="cards-container container flex" id="cards-container">
+       
+    </div>
+   </main>
+  <template id="temp-news-card">
+ <div class="card">
+            <div class="card-header"> 
+                <img src="http://via.placeholder.com/400x200" alt="news-image" id="news-image">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the title</h3>
+                <h5 class="news-source" id="news-source">End gadget 26/08/2023</h6>
+                <p style="font-size:medium;" class="news-desc" id="news-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, laborum dolorem! Ratione delectus laborum autem eveniet, iste repellendus nostrum eius?</p>
+            </div>
+         </div>
+  </template>
+
+    <script >
+
+    let API_KEY = "a3763d58506e44379ffe51661c2037fe";
+const url = "https://newsapi.org/v2/everything?q=";
+
+window.addEventListener('load',() => fetchNews("Weather"));
+
+async function fetchNews (query) {
+    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`)
+    const data = await res.json();
+    console.log(data)
+    binddata(data.articles);
+}
+function binddata(articles){
+const cardsContainer = document.getElementById('cards-container')
+const newsCardTemplate = document.getElementById('temp-news-card')
+
+cardsContainer.innerHTML="";
+
+
+articles.forEach((article) => {
+    if(!article.urlToImage) return;
+    const cardClone = newsCardTemplate.content.cloneNode(true);
+    fillDataInCard(cardClone, article);
+    cardsContainer.appendChild(cardClone);
+   })
+} 
+function fillDataInCard(cardClone, article){
+    const newsImg = cardClone.querySelector('#news-image')
+    const newsTitle = cardClone.querySelector('#news-title')
+    const newsSource = cardClone.querySelector('#news-source')
+    const newsDesc = cardClone.querySelector('#news-desc')
+
+    newsImg.src = article.urlToImage;
+    newsTitle.innerHTML = article.title;
+    newsDesc.innerHTML = article.description;
+
+    const date = new Date(article.publishedAt).toLocaleString("en-US" , {
+         timeZone : "Asia/Jakarta" 
+         });
+
+    newsSource.innerHTML = `${article.source.name} • ${date}`
+
+    cardClone.firstElementChild.addEventListener('click' , () => {
+        window.open(article.url,"_blank");
+    })
+}
+
+    </script>
+   {{>footer}}
+</body>
+</html>

@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,300&family=IBM+Plex+Serif:ital@1&family=Merriweather:wght@300;400;900&family=Piazzolla:opsz,wght@8..30,200&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Serif', serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Piazzolla', serif;
+}
+
+:root {
+    --main-bg: #59e4a8;
+    --main-color: #385a64;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    margin: 0;
+}
+
+.main_menu {
+    background-color: var(--main-bg);
+}
+
+.navbar {
+    color: #fff;
+    background-color: var(--main-bg);
+    padding: 2rem 0;
+}
+
+.navbar li {
+    margin-left: 2rem;
+}
+
+.navbar a:hover {
+    /* color: #7dff04; */
+    text-shadow: 0 0 1px #385a64, 0 0 2px #385a64;
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    background-color: var(--main-color);
+}
+
+span.navbar-toggler-icon {
+    color: white;
+}
+
+.fa-snowflake {
+    text-shadow: 0 0 1px #385a64, 0 0 1px #385a64;
+    transition: all linear;
+    animation: rot 2s linear infinite;
+}
+
+@keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Main Header */
+.main_header_left {
+    height: 55rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main_header_left p {
+    font-size: 2rem;
+    margin: 1rem 3rem 2rem 3rem;
+}
+
+.main_header_left h2 {
+    font-size: 4rem;
+    margin: 1rem 0 4rem 3rem;
+    text-transform: capitalize;
+}
+
+.main_header_left .text_clr {
+    color: var(--main-bg);
+    text-decoration: underline;
+
+
+}
+
+.main_header_left button {
+    font-size: 2rem;
+    color: var(--main-color);
+    background-color: #59e4a8;
+    font-weight: bolder;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    margin: 1rem 0 4rem 3rem;
+    outline: none;
+    box-shadow: 0 8px 6px -6px #000;
+}
+
+.main_header_left button:hover {
+    box-shadow: 0 8px 6px -6px var(--main-bg);
+    border-radius: 7%;
+}
+
+.main_header_right {
+    height: 55rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.imghe {
+    width: 92%;
+}
+
+.main_header_right figure img {
+    width: 115%;
+    filter: drop-shadow(0 0.5rem 0.7rem rgb(31 99 22))
+}
+
+/* styling weather */
+
+/* search in weather */
+.tempInformation {
+    width: 50rem;
+    margin: auto;
+    min-height: 20rem;
+    background-color:  #336f45;
+    border-radius: 1rem;
+    /* padding: 1rem; */
+    font-family: "Roboto", sans-serif;
+}
+
+
+.top_layer {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    background-color:  #336f45;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+
+}
+
+.top_layer p {
+    color: #fff;
+    font-weight: 300;
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+.main_layer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.main_layer #city_name {
+    padding: 0rem 0;
+    color: #bfc1c8;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.main_layer .middle_layer {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.main_layer .middle_layer p,
+.main_layer .middle_layer .fa {
+    font-size: 7rem;
+    font-weight: 900;
+}
+
+.fa-cloud {
+    color: #fff;
+}
+
+sup {
+    font-size: 6rem;
+    margin-top: -2rem;
+}
+
+.data_hide {
+    visibility: hidden;
+    transition: all 0.3s linear;
+}
+
+/* search in weather */
+.temp_form {
+    width: 60%;
+    position: relative;
+    margin: 8rem auto 6rem;
+}
+
+.temp_form input[type="text"] {
+    width: 100%;
+    background:  #336f45;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 2rem 5rem 2rem 2rem;
+    font-size: 1.7rem;
+    border-radius: 3rem;
+}
+
+::placeholder {
+    color: #bfc1c8;
+}
+
+.temp_form input[type="submit"] {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: none;
+    background: #00ba2b;
+    padding: 0 3rem;
+    border-radius: 3rem;
+    color: white;
+    font-size: 1.6rem;
+}
+
+.temp_form input[type="submit"]:hover {
+    color: #00ba2b;
+    background-color:
+        #fff;
+}
+
+/* syling error page */
+.errimg img {
+    width: 70rem;
+    height: 30rem;
+}
+
+.error {
+    height: 65rem;
+    width: 98%;
+    text-align: center;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: auto;
+    background-color: var(--main-bg);
+    margin-top: 30px;
+
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+    color: var(--main-color);
+    line-height: 5rem;
+    font-size: 1.5rem;
+}
+
+/* responsive code */
+@media(max-width:768px) {
+    .main_header_left {
+        height: auto;
+        margin: 5rem 0;
+    }
+
+    .main_header_right {
+        height: auto;
+        margin-top: 3rem 0;
+    }
+    .temp_form{
+        width: auto;
+    }
+    .tempInformation{
+        width: auto;
+    }
+    .main_layer .middle_layer p,
+.main_layer .middle_layer .fa {
+    font-size: 5rem;
+    
+}
+}
+
+.main_header_left .aboutfirstp {
+    font-size: large;
+    margin-bottom: -1rem;
+    color: black;
+    font-weight: bold;
+}
+
+.main_header_left .aboutsep {
+    font-size: medium;
+    color: black;
+    font-weight: bold;
+}
+
+.main_header_left .aboutthp {
+    font-size: 2rem;
+    color: #000;
+    font-weight: bold;
+}
+
+.main-news{
+    padding-block: 20px;
+    margin-top: 40px;
+  
+}
+.cards-container{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+   
+}
+.card{
+    width: 360px;
+    min-height: 400px;
+    box-shadow: 0 0 4px #d4effd;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #ffffff;
+    overflow: hidden;
+    transition: all 0.3s ease ;
+    
+}
+.card:hover{
+    box-shadow: 1px 1px 8px rgb(89 228 168);;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+.card-header img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+
+}
+.card-content{
+    padding: 12px;
+}
+.news-source{
+    margin-block: 12px;
+}
