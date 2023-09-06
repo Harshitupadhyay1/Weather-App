@@ -55,7 +55,7 @@ const url = "https://newsapi.org/v2/everything?q=";
 window.addEventListener('load',() => fetchNews("weather"));
 
 async function fetchNews (query) {
-    const res = await fatch(`${url}${query}&apiKey=${API_KEY}`)
+    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`)
     const data = await res.json();
     console.log(data)
     binddata(data.articles);
